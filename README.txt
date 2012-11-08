@@ -1,0 +1,1 @@
+Ovaj proekt e napisan vo Java programski jazik na Eclipse Indigo okolina i e koristen eGit pluggin
