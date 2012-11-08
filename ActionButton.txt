@@ -1,0 +1,53 @@
+
+JButton kopce=new JButton("Prijavi se");
+kopce.setBounds(80, 630, 150, 20);
+panel.add(kopce);
+kopce.setToolTipText("Generates file");
+
+kopce.addActionListener(new ActionListener(){
+
+@Override
+public void actionPerformed(ActionEvent event) {
+// TODO Auto-generated method stub
+if(ime1.getText().equals("")||prezime1.getText().equals("")){
+	 JOptionPane.showMessageDialog(panel,"Polinjata so '*' treba da se popolneti","Izvestuvanje", JOptionPane.WARNING_MESSAGE);
+
+}
+else{
+try{
+FileWriter record=new FileWriter("D:/prijava.txt");
+BufferedWriter out=new BufferedWriter(record);
+out.write("--------------Prijava--------------"+"\r\n");
+out.write("Ime: "+ime1.getText()+"\r\n");
+out.write("Prezime: "+prezime1.getText()+"\r\n");
+out.write("Adresa: "+adresa1.getText()+"\r\n");
+out.write("Iskustvo: "+iskustvo1.getText()+"\r\n");
+out.write("Jazici: "+jazik1.getText()+"\r\n");
+
+out.write("Opshtina: "+combo.getSelectedItem()+"\r\n");
+out.write("Programa: "+combo1.getSelectedItem()+"\r\n");
+if(buton.isSelected()){
+out.write("Knowlage: "+knowlageList[0]+"\r\n");
+}
+if(buton1.isSelected()){
+out.write("Knowlage: "+knowlageList[1]+"\r\n");
+}
+if(buton2.isSelected()){
+out.write("Knowlage: "+knowlageList[2]+"\r\n");
+}
+out.write("----------------------------------");
+out.close();
+JOptionPane.showMessageDialog(panel, "Prijavuvaneto e uspeshno");
+}
+catch(Exception e){
+
+}}
+}
+
+});
+
+
+
+}
+
+}
